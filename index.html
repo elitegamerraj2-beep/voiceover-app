@@ -9,7 +9,7 @@
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       text-align: center;
-      padding-top: 50px;
+      padding-top: 40px;
     }
 
     textarea {
@@ -26,30 +26,44 @@
       font-size: 16px;
       cursor: pointer;
     }
+
+    .output {
+      margin-top: 20px;
+      background: #ffffff;
+      padding: 15px;
+      width: 80%;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 5px;
+    }
   </style>
 </head>
 
 <body>
 
   <h1>My Professional Voice Over App</h1>
-
   <p>This app is live and working.</p>
 
-  <textarea placeholder="Type or paste your script here..."></textarea>
-
+  <textarea id="scriptText" placeholder="Type or paste your script here..."></textarea>
   <br>
-
   <button id="generateBtn">Generate Voice</button>
+
+  <div id="result" class="output" style="display:none;"></div>
 
   <script>
     const button = document.getElementById("generateBtn");
-    const textarea = document.querySelector("textarea");
+    const textarea = document.getElementById("scriptText");
+    const resultBox = document.getElementById("result");
 
     button.addEventListener("click", () => {
-      if (textarea.value.trim() === "") {
+      const text = textarea.value.trim();
+
+      if (text === "") {
         alert("Please enter some text first.");
       } else {
-        alert("Your script is ready!");
+        resultBox.style.display = "block";
+        resultBox.innerHTML = "<strong>Script received:</strong><br>" + text;
       }
     });
   </script>
