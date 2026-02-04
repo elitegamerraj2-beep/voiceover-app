@@ -39,7 +39,20 @@
 
   <br>
 
-  <button>Generate Voice</button>
+  <button id="generateBtn">Generate Voice</button>
+
+  <script>
+    const button = document.getElementById("generateBtn");
+    const textarea = document.querySelector("textarea");
+
+    button.addEventListener("click", () => {
+      if (textarea.value.trim() === "") {
+        alert("Please enter some text first.");
+      } else {
+        alert("Your script is ready!");
+      }
+    });
+  </script>
 
 </body>
 </html>
